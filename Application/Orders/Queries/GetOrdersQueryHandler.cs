@@ -1,4 +1,4 @@
-﻿using GestaoPedidosAPI.Application.Common.Interfaces;
+using GestaoPedidosAPI.Application.Common.Interfaces;
 using GestaoPedidosAPI.Application.Orders.DTO;
 using MediatR;
 

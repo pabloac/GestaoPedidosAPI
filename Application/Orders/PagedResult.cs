@@ -1,4 +1,4 @@
-﻿namespace GestaoPedidosAPI.Application.Orders.DTO;
+namespace GestaoPedidosAPI.Application.Orders;
 
 public record PagedResult<T>(
     IReadOnlyList<T> Items,

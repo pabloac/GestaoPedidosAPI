@@ -8,4 +8,6 @@ public interface IOrderRepository
         int page,
         int pageSize,
         CancellationToken cancellationToken = default);
+
+    Task AddAsync(Order order, IEnumerable<OrderItem>? items = null, CancellationToken cancellationToken = default);
 }

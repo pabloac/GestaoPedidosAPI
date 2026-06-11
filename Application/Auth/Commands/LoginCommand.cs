@@ -1,4 +1,3 @@
-using GestaoPedidosAPI.Application.Auth.DTOs;
 using MediatR;
 
 namespace GestaoPedidosAPI.Application.Auth.Commands;

@@ -1,5 +1,4 @@
-﻿using GestaoPedidosAPI.Application.Orders.DTO;
-
+using GestaoPedidosAPI.Application.Orders.DTO;
 using MediatR;
 
 namespace GestaoPedidosAPI.Application.Orders.Queries;
