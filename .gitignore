@@ -1,0 +1,116 @@
+# Claude Code
+.claude/
+
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build results
+[Bb]in/
+[Oo]bj/
+**/bin/
+**/obj/
+
+# Visual Studio cache/options directory
+.vscode/
+.vs/
+
+# Rider
+.idea/
+*.sln.iml
+
+# Resharper
+_ReSharper*/
+*._ReSharper*
+*.DotSettings.user
+
+# NuGet
+*.nupkg
+packages/
+.nuget/packages/
+project.lock.json
+project.fragment.lock.json
+
+# Dotnet Core publish
+publish/
+artifacts/
+
+# User secrets (keep out of repo)
+secrets.json
+secrets.*
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# IIS Express
+/.vs/**/applicationhost.config
+/.vs/**/iissettings.json
+
+# Logs
+*.log
+logs/
+TestResults/
+
+# Coverage
+coverage/
+*.coverage
+*.coveragexml
+*.lcov
+
+# Database files
+*.mdf
+*.ldf
+*.sqlite
+*.db
+
+# OS generated files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# JetBrains (other)
+*.iml
+out/
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Local env files
+.env
+.env.*
+appsettings.*.Local
+local.settings.json
+
+# Deployment files
+*.publishsettings
+
+# Others
+*.userprefs
+
+# Ignore generated swagger files, if any
+swagger.json
+
+# Ignore Rider caches
+.idea/
+
+# Package output
+*.zip
+*.tar.gz
+
+# Temporary files
+*.tmp
+*.temp
+
+# Visual Studio Code workspace storage
+.vscode/*storage.json
+
+# Ignore compiled Python files if present
+__pycache__/
+*.py[cod]
