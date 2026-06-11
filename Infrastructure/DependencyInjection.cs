@@ -1,5 +1,6 @@
 using GestaoPedidosAPI.Application.Common.Interfaces;
 using GestaoPedidosAPI.Infrastructure.Auth;
+using GestaoPedidosAPI.Infrastructure.Middleware;
 using GestaoPedidosAPI.Infrastructure.Persistence;
 using GestaoPedidosAPI.Infrastructure.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -19,6 +20,9 @@ public static class DependencyInjection
         services.AddScoped<IOrderRepository, OrderRepository>();
         services.AddSingleton<IJwtTokenGenerator, JwtTokenGenerator>();
         services.AddSingleton<IPasswordHasher, BcryptPasswordHasher>();
+
+        services.AddExceptionHandler<GlobalExceptionHandler>();
+        services.AddProblemDetails();
 
         return services;
     }

@@ -22,5 +22,7 @@ public class OrderConfiguration : IEntityTypeConfiguration<Order>
             .WithOne()
             .HasForeignKey(i => i.OrderId)
             .OnDelete(DeleteBehavior.Cascade);
+
+        builder.Navigation(o => o.Items).UsePropertyAccessMode(PropertyAccessMode.Field);
     }
 }

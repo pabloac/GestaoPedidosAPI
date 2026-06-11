@@ -20,14 +20,7 @@ public class AuthController : ControllerBase
     [ProducesResponseType(StatusCodes.Status401Unauthorized)]
     public async Task<IActionResult> Login([FromBody] LoginCommand command, CancellationToken cancellationToken)
     {
-        try
-        {
-            var result = await _mediator.Send(command, cancellationToken);
-            return Ok(result);
-        }
-        catch (UnauthorizedAccessException)
-        {
-            return Unauthorized(new { message = "Credenciais inválidas." });
-        }
+        var result = await _mediator.Send(command, cancellationToken);
+        return Ok(result);
     }
 }

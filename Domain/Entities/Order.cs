@@ -8,7 +8,9 @@ public class Order
     public Guid CustomerId { get; set; }
     public OrderStatus Status { get; set; }
     public DateTime CreatedAt { get; set; }
-    public IReadOnlyList<OrderItem> Items { get; set; } = [];
+
+    private readonly List<OrderItem> _items = [];
+    public IReadOnlyList<OrderItem> Items => _items;
 
     private Order() { }
 
