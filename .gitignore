@@ -119,3 +119,4 @@ swagger.json
 # Ignore compiled Python files if present
 __pycache__/
 *.py[cod]
+/gestao_pedidos.db-wal

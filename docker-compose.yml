@@ -8,3 +8,18 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Production
     restart: unless-stopped
+
+  sonarqube:
+    image: sonarqube:community
+    ports:
+      - "9000:9000"
+    environment:
+      - SONAR_ES_BOOTSTRAP_CHECKS_DISABLE=true
+    volumes:
+      - sonarqube_data:/opt/sonarqube/data
+      - sonarqube_logs:/opt/sonarqube/logs
+    restart: unless-stopped
+
+volumes:
+  sonarqube_data:
+  sonarqube_logs:
