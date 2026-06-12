@@ -21,4 +21,12 @@ public class Order
         Status = status;
         CreatedAt = createdAt;
     }
+
+    public void Cancel()
+    {
+        if (Status == OrderStatus.Cancelled)
+            throw new ArgumentException("O pedido já está cancelado.");
+
+        Status = OrderStatus.Cancelled;
+    }
 }

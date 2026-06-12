@@ -9,6 +9,9 @@ public class CreateOrderCommandValidator : AbstractValidator<CreateOrderCommand>
         RuleFor(x => x.CustomerId)
             .NotEmpty().WithMessage("O CustomerId é obrigatório.");
 
+        RuleFor(x => x.Items)
+            .NotEmpty().WithMessage("O pedido deve conter ao menos um item.");
+
         RuleForEach(x => x.Items).ChildRules(item =>
         {
             item.RuleFor(i => i.ProductName)

@@ -1,4 +1,6 @@
 ﻿using GestaoPedidosAPI.Application.Orders.Commands;
+using GestaoPedidosAPI.Application.Orders.Commands.CancelOrder;
+using GestaoPedidosAPI.Application.Orders.Commands.CreateOrder;
 using GestaoPedidosAPI.Application.Orders.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -29,15 +31,37 @@ public class OrdersController : ControllerBase
     }
 
 
+    [HttpGet("{id:guid}")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    public async Task<IActionResult> GetOrderById([FromRoute] Guid id, CancellationToken cancellationToken)
+    {
+        var result = await _mediator.Send(new GetOrderByIdQuery(id), cancellationToken);
+
+        return result is null ? NotFound() : Ok(result);
+    }
+
     [HttpPost]
     [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status401Unauthorized)]
-    public async Task<IActionResult> GetOrder(
+    public async Task<IActionResult> InsertOrder(
     [FromBody] CreateOrderCommand command,
     CancellationToken cancellationToken)
     {
         var result = await _mediator.Send(command, cancellationToken);
         return CreatedAtAction(nameof(GetOrders), new { }, result);
+    }
+
+
+    [HttpPatch("{id:guid}/cancel")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    public async Task<IActionResult> CancelOrder([FromRoute] Guid id, CancellationToken cancellationToken)
+    {
+        await _mediator.Send(new CancelOrderCommand(id), cancellationToken);
+        return NoContent();
     }
 }
 

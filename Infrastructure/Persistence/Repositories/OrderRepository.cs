@@ -14,6 +14,14 @@ public class OrderRepository : IOrderRepository
         _context = context;
     }
 
+    public async Task<Order?> GetByIdAsync(Guid id, CancellationToken cancellationToken = default)
+    {
+        return await _context.Orders
+            .Include(o => o.Items)
+            .AsNoTracking()
+            .FirstOrDefaultAsync(o => o.Id == id, cancellationToken);
+    }
+
     public async Task AddAsync(Order order, IEnumerable<OrderItem>? items = null, CancellationToken cancellationToken = default)
     {
         //Aqui meu objetivo é em deixar opcional adicionar ordem com ou sem itens, para implementar depois um endpoint pra adicionar itens a uma ordem já existente
@@ -41,5 +49,12 @@ public class OrderRepository : IOrderRepository
             .ToListAsync(cancellationToken);
 
         return (items, totalCount);
+    }
+
+    public async Task<bool> UpdateAsync(Order order, CancellationToken cancellationToken = default)
+    {
+        _context.Orders.Update(order);
+        var affected = await _context.SaveChangesAsync(cancellationToken);
+        return affected > 0;
     }
 }
