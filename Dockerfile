@@ -8,6 +8,7 @@ FROM mcr.microsoft.com/dotnet/aspnet:10.0-nanoserver-ltsc2022 AS base
 WORKDIR /app
 EXPOSE 8080
 EXPOSE 8081
+ENV ASPNETCORE_URLS=http://+:8080
 
 
 # This stage is used to build the service project

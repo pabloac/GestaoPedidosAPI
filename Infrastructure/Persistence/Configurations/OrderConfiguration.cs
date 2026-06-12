@@ -11,6 +11,8 @@ public class OrderConfiguration : IEntityTypeConfiguration<Order>
     {
         builder.HasKey(o => o.Id);
 
+        builder.Ignore(o => o.TotalAmount);
+
         builder.Property(o => o.Status)
             .HasConversion<string>()  // salva o enum como texto no banco
             .IsRequired();

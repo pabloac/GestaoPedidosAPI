@@ -11,6 +11,7 @@ public class Order
 
     private readonly List<OrderItem> _items = [];
     public IReadOnlyList<OrderItem> Items => _items;
+    public decimal TotalAmount => _items.Sum(i => i.Quantity * i.UnitPrice);
 
     private Order() { }
 
