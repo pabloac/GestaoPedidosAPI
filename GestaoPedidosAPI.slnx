@@ -1,4 +1,5 @@
 <Solution>
   <Project Path="GestaoPedidosAPI.csproj" />
   <Project Path="GestaoPedidosAPI.Tests\GestaoPedidosAPI.Tests.csproj" />
+  <Project Path="GestaoPedidosAPI.IntegrationTests\GestaoPedidosAPI.IntegrationTests.csproj" />
 </Solution>

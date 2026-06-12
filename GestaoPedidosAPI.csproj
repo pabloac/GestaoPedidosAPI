@@ -34,6 +34,10 @@
     <Content Remove="GestaoPedidosAPI.Tests\**" />
     <EmbeddedResource Remove="GestaoPedidosAPI.Tests\**" />
     <None Remove="GestaoPedidosAPI.Tests\**" />
+    <Compile Remove="GestaoPedidosAPI.IntegrationTests\**" />
+    <Content Remove="GestaoPedidosAPI.IntegrationTests\**" />
+    <EmbeddedResource Remove="GestaoPedidosAPI.IntegrationTests\**" />
+    <None Remove="GestaoPedidosAPI.IntegrationTests\**" />
   </ItemGroup>
 
 </Project>
