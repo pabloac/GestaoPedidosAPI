@@ -1,3 +1,4 @@
 <Solution>
   <Project Path="GestaoPedidosAPI.csproj" />
+  <Project Path="GestaoPedidosAPI.Tests\GestaoPedidosAPI.Tests.csproj" />
 </Solution>
