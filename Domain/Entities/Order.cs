@@ -27,6 +27,9 @@ public class Order
         if (Status == OrderStatus.Cancelled)
             throw new ArgumentException("O pedido já está cancelado.");
 
+        if (Status != OrderStatus.Pending)
+            throw new ArgumentException($"O pedido não pode ser cancelado pois está com status '{Status}'.");
+
         Status = OrderStatus.Cancelled;
     }
 }

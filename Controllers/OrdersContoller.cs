@@ -55,13 +55,14 @@ public class OrdersController : ControllerBase
 
 
     [HttpPatch("{id:guid}/cancel")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
-    [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status401Unauthorized)]
     public async Task<IActionResult> CancelOrder([FromRoute] Guid id, CancellationToken cancellationToken)
     {
-        await _mediator.Send(new CancelOrderCommand(id), cancellationToken);
-        return NoContent();
+        var result = await _mediator.Send(new CancelOrderCommand(id), cancellationToken);
+
+        return result is null ? NoContent() : Ok(result);
     }
 }
 
