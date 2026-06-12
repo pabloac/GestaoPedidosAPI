@@ -23,6 +23,7 @@ public class GetOrdersQueryHandler : IRequestHandler<GetOrdersQuery, PagedResult
             o.CustomerId,
             o.Status.ToString(),
             o.CreatedAt,
+            o.TotalAmount,
             o.Items.Select(i => new OrderItemDTO(i.Id, i.ProductName, i.Quantity, i.UnitPrice))
                    .ToList()
         )).ToList();

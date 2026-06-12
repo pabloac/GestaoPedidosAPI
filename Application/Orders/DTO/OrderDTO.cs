@@ -7,4 +7,5 @@ public record OrderDTO(
     Guid CustomerId,
     string Status,
     DateTime CreatedAt,
+    decimal TotalAmount,
     IReadOnlyList<OrderItemDTO> Items);

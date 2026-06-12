@@ -25,6 +25,7 @@ public class GetOrderByIdQueryHandler : IRequestHandler<GetOrderByIdQuery, Order
             order.CustomerId,
             order.Status.ToString(),
             order.CreatedAt,
+            order.TotalAmount,
             order.Items.Select(i => new OrderItemDTO(i.Id, i.ProductName, i.Quantity, i.UnitPrice)).ToList());
     }
 }

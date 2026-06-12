@@ -7,4 +7,5 @@ public record CancelOrderResponse(
     Guid CustomerId,
     string Status,
     string Descricao,
+    decimal TotalAmount,
     IReadOnlyList<OrderItemDTO> Items);

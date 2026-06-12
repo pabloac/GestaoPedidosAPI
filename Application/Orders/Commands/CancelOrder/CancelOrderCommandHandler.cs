@@ -29,6 +29,7 @@ public class CancelOrderCommandHandler : IRequestHandler<CancelOrderCommand, Can
             order.CustomerId,
             order.Status.ToString(),
             "Cancelado com sucesso!",
+            order.TotalAmount,
             order.Items.Select(i => new OrderItemDTO(i.Id, i.ProductName, i.Quantity, i.UnitPrice)).ToList());
     }
 }
